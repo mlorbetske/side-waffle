@@ -22,11 +22,11 @@
     <RootNamespace>TemplatePack</RootNamespace>
     <AssemblyName>TemplatePack</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-    <GeneratePkgDefFile>false</GeneratePkgDefFile>
-    <IncludeAssemblyInVSIXContainer>false</IncludeAssemblyInVSIXContainer>
+    <GeneratePkgDefFile>true</GeneratePkgDefFile>
+    <IncludeAssemblyInVSIXContainer>true</IncludeAssemblyInVSIXContainer>
     <IncludeDebugSymbolsInVSIXContainer>false</IncludeDebugSymbolsInVSIXContainer>
     <IncludeDebugSymbolsInLocalVSIXDeployment>false</IncludeDebugSymbolsInLocalVSIXDeployment>
-    <CopyBuildOutputToOutputDirectory>false</CopyBuildOutputToOutputDirectory>
+    <CopyBuildOutputToOutputDirectory>true</CopyBuildOutputToOutputDirectory>
     <CopyOutputSymbolsToOutputDirectory>false</CopyOutputSymbolsToOutputDirectory>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -507,6 +507,12 @@
     <None Include="ItemTemplates\Web\Misc\ReadmeMd\icon.pdn" />
     <None Include="ItemTemplates\Web\Misc\ReadmeMd\readme.md" />
     <Content Include="ProjectTemplates\Extensibility\TemplatePack\_Definitions\_project.vstemplate.xml" />
+    <Content Include="ProjectTemplates\Extensibility\RemoteTemplate\SideWaffleDefinitions1\Definitions\CSharp.vstemplate" />
+    <Content Include="ProjectTemplates\Extensibility\RemoteTemplate\SideWaffleDefinitions1\Definitions\VB.vstemplate" />
+    <Content Include="ProjectTemplates\Extensibility\RemoteTemplate\SideWaffleDefinitions1\Definitions\Web.csharp.vstemplate" />
+    <Content Include="ProjectTemplates\Extensibility\RemoteTemplate\SideWaffleDefinitions1\Definitions\Web.VB.vstemplate">
+      <SubType>Designer</SubType>
+    </Content>
     <None Include="ProjectTemplates\Web\_SampleFSharpTemplate\SayedFSharpSample.fsproj" />
     <None Include="ProjectTemplates\Windows Phone\readme.md" />
     <None Include="ProjectTemplates\Windows Store\readme.md" />
@@ -571,7 +577,41 @@
     <None Include="ItemTemplates\Extensibility\BrowserLink\MyExtension.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="envdte, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="envdte80, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="LigerShark.TemplateBuilder.Tasks">
+      <HintPath>..\..\template-builder\src\LigerShark.TemplateBuilder.Tasks\bin\Debug\LigerShark.TemplateBuilder.Tasks.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Build.Framework" />
+    <Reference Include="Microsoft.Build.Utilities.v4.0" />
+    <Reference Include="Microsoft.VisualStudio.OLE.Interop, Version=7.1.40304.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="Microsoft.VisualStudio.Shell.12.0, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.VisualStudio.Shell.Immutable.10.0, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.VisualStudio.Shell.Interop, Version=7.1.40304.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="Microsoft.VisualStudio.Shell.Interop.10.0, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.Shell.Interop.11.0, Version=11.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.Shell.Interop.12.0, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.Shell.Interop.8.0, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="Microsoft.VisualStudio.Shell.Interop.9.0, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="Microsoft.VisualStudio.TemplateWizardInterface, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Snippets\C++\SideWaffle\" />
@@ -582,11 +622,23 @@
     <Folder Include="Snippets\XML\SideWaffle\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\RemoteTemplates\RemoteTemplates.csproj">
+      <Project>{666B6AAE-7B70-49F4-A3B0-3D736A79E62F}</Project>
+      <Name>RemoteTemplates</Name>
+    </ProjectReference>
     <ProjectReference Include="..\_SampleProjRef\_SampleProjRef.csproj">
       <Project>{0328c195-795d-423f-99ac-9ecf8b0b5198}</Project>
       <Name>_SampleProjRef</Name>
       <Private>False</Private>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CreateTemplate.cs" />
+    <Compile Include="GuidList.cs" />
+    <Compile Include="RemoteTemplateWizard.cs" />
+    <Content Include="ProjectTemplates\Extensibility\RemoteTemplate\SideWaffleDefinitions1\Shim.vbproj" />
+    <Content Include="ProjectTemplates\Extensibility\RemoteTemplate\SideWaffleDefinitions1\Shim.csproj" />
+    <Compile Include="TemplatePackPackage.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(VSToolsPath)\VSSDK\Microsoft.VsSDK.targets" Condition="'$(VSToolsPath)' != ''" />

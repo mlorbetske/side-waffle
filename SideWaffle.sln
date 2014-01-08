@@ -1,5 +1,7 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TemplatePack", "TemplatePack\TemplatePack.csproj", "{66E5E42A-2905-4A93-A3F7-FD26DA48A25F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{08B623FA-FC04-49A5-8BB5-033E05154B7E}"
@@ -23,6 +25,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{CF6C5B
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "_SampleProjRef", "_SampleProjRef\_SampleProjRef.csproj", "{0328C195-795D-423F-99AC-9ECF8B0B5198}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RemoteTemplates", "RemoteTemplates\RemoteTemplates.csproj", "{666B6AAE-7B70-49F4-A3B0-3D736A79E62F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -34,8 +38,13 @@ Global
 		{66E5E42A-2905-4A93-A3F7-FD26DA48A25F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{66E5E42A-2905-4A93-A3F7-FD26DA48A25F}.Release|Any CPU.Build.0 = Release|Any CPU
 		{0328C195-795D-423F-99AC-9ECF8B0B5198}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0328C195-795D-423F-99AC-9ECF8B0B5198}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0328C195-795D-423F-99AC-9ECF8B0B5198}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0328C195-795D-423F-99AC-9ECF8B0B5198}.Release|Any CPU.Build.0 = Release|Any CPU
+		{666B6AAE-7B70-49F4-A3B0-3D736A79E62F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{666B6AAE-7B70-49F4-A3B0-3D736A79E62F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{666B6AAE-7B70-49F4-A3B0-3D736A79E62F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{666B6AAE-7B70-49F4-A3B0-3D736A79E62F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
